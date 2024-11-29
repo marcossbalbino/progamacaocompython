@@ -1,0 +1,296 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/marcossbalbino/progamacaocompython/blob/main/banco%2C%20login%20e%20candidato\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "usr = \"Oszter\"\n",
+        "senha = \"789\"\n",
+        "def login(usr, senha):\n",
+        "  while True:\n",
+        "    usuario = input(\"Digite seu usuário: \")\n",
+        "    senha = input(\"Digite sua senha: \")\n",
+        "    if usuario != usr or senha != senha:\n",
+        "      print(\"Usuário ou senha incorreta, tente novamente.\")\n",
+        "    if usuario == usr and senha == senha:\n",
+        "      print(\"Login bem sucedido\")\n",
+        "      break\n",
+        "\n",
+        "saldo = 1000\n",
+        "\n",
+        "def opr():\n",
+        "  while True:\n",
+        "      print(\"Qual próxima operação deseja realizar? \")\n",
+        "      operation = float(input(\"Digite : \\n 1 para ver saldo \\n 2 para saque \\n 3 para depósito \\n\"))\n",
+        "      if operation == 1:\n",
+        "        print(\"Seu saldo é\", saldo)\n",
+        "        break\n",
+        "      if operation == 2:\n",
+        "        saque = float(input(\"Digite o valor a ser sacado \"))\n",
+        "        saque2 = saldo - saque\n",
+        "        saque2 = print(\"seu saldo agora é \", saque2 )\n",
+        "        break\n",
+        "      if operation == 3:\n",
+        "        dep = float(input(\"Digite o valor a ser depositado. \"))\n",
+        "        dep2 = saldo + dep\n",
+        "        dep2 = print(\"seu saldo agora é \",dep2 )\n",
+        "        break\n",
+        "      else:\n",
+        "        print(\"Operação não identificada, tente novamente. \")\n",
+        "        break"
+      ],
+      "metadata": {
+        "id": "f6MidtMB3nCS"
+      },
+      "execution_count": 9,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "login(usr, senha)"
+      ],
+      "metadata": {
+        "id": "0Mfgi5DI4TTj",
+        "outputId": "dce53c7b-6682-45b9-a11f-a878498458ab",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Digite seu usuário: Oszter\n",
+            "Digite sua senha: 789\n",
+            "Login bem sucedido\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "opr()"
+      ],
+      "metadata": {
+        "id": "TAHx3Hkr75mC",
+        "outputId": "b464b9b0-5ffe-4427-92e7-1b3d6feb3705",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Qual próxima operação deseja realizar? \n",
+            "Digite : \n",
+            " 1 para ver saldo \n",
+            " 2 para saque \n",
+            " 3 para depósito \n",
+            "2\n",
+            "Digite o valor a ser sacado 200\n",
+            "seu saldo agora é  800.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "com parâmetro e com retorno:\n",
+        "\n",
+        "Você foi encarregado de criar um programa para calcular o valor total de uma compra em um supermercado. Crie uma função chamada calcular_total_compra que receba como parâmetro uma lista de preços dos itens comprados e retorne o valor total a ser pago.\n",
+        "\n",
+        "No programa principal:\n",
+        "\n",
+        "Peça ao usuário para informar quantos itens ele comprou.\n",
+        "Para cada item, solicite o preço e armazene em uma lista.\n",
+        "Chame a função e exiba o valor total da compra.\n",
+        "\n",
+        "Na saída do programa deverá ser assim:\n",
+        "\n",
+        "Quantos itens você comprou? 3\n",
+        "Digite o preço do item 1: 10.50\n",
+        "Digite o preço do item 2: 5.20\n",
+        "Digite o preço do item 3: 8.30\n",
+        "O valor total da compra é: R$ 24.00"
+      ],
+      "metadata": {
+        "id": "K2h9JW6Z1IH3"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calcular_total_compra(precos):\n",
+        "    total = sum(precos)\n",
+        "    return total\n",
+        "\n",
+        "quantidade_itens = int(input(\"Quantos itens você comprou? \"))\n",
+        "\n",
+        "precos = []\n",
+        "\n",
+        "for i in range(1, quantidade_itens + 1):\n",
+        "    preco = float(input(f\"Digite o preço do item {i}: \"))\n",
+        "    precos.append(preco)\n",
+        "\n",
+        "total = calcular_total_compra(precos)\n",
+        "\n",
+        "print(f\"O valor total da compra é: R$ {total:.2f}\")"
+      ],
+      "metadata": {
+        "id": "1Mtimkcd1d2n",
+        "outputId": "7aa52c3b-08a1-4dfe-848f-102027fd8958",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Quantos itens você comprou? 3\n",
+            "Digite o preço do item 1: 10.50\n",
+            "Digite o preço do item 2: 5.20\n",
+            "Digite o preço do item 3: 8.30\n",
+            "O valor total da compra é: R$ 24.00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        " Função Sem parâmetro e com retorno\n",
+        "\n",
+        "Você está organizando uma eleição fictícia com três candidatos. Crie uma função chamada realizar_votacao que:\n",
+        "\n",
+        "Solicite ao usuário que vote em um dos três candidatos, identificados por números (1, 2 ou 3).\n",
+        "Permita que a votação continue até que o usuário digite 0 para encerrar.\n",
+        "Ao final, exiba o número total de votos para cada candidato.\n",
+        "A função não deve receber parâmetros nem retornar valores; apenas realizar a votação e exibir os resultados no final.\n",
+        "\n",
+        "Vote no seu candidato:\n",
+        "1 - Candidato A\n",
+        "2 - Candidato B\n",
+        "3 - Candidato C\n",
+        "Digite 0 para encerrar.\n",
+        "Seu voto: 1\n",
+        "Seu voto: 3\n",
+        "Seu voto: 2\n",
+        "Seu voto: 3\n",
+        "Seu voto: 0\n",
+        "\n",
+        "Resultado da votação:\n",
+        "Candidato A: 1 voto(s)\n",
+        "Candidato B: 1 voto(s)\n",
+        "Candidato C: 2 voto(s)"
+      ],
+      "metadata": {
+        "id": "DBphu-Vj1_9S"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def realizar_votacao():\n",
+        "    \"\"\"\n",
+        "    Realiza uma votação fictícia com três candidatos.\n",
+        "\n",
+        "    Solicita ao usuário que vote em um dos três candidatos,\n",
+        "    identificados por números (1, 2 ou 3).\n",
+        "    Permite que a votação continue até que o usuário digite 0 para encerrar.\n",
+        "    Ao final, exiba o número total de votos para cada candidato.\n",
+        "    \"\"\"\n",
+        "    votos_candidato_a = 0\n",
+        "    votos_candidato_b = 0\n",
+        "    votos_candidato_c = 0\n",
+        "\n",
+        "    print(\"Vote no seu candidato:\")\n",
+        "    print(\"1 - Candidato A\")\n",
+        "    print(\"2 - Candidato B\")\n",
+        "    print(\"3 - Candidato C\")\n",
+        "    print(\"Digite 0 para encerrar.\")\n",
+        "\n",
+        "    while True:\n",
+        "        voto = int(input(\"Seu voto: \"))\n",
+        "        if voto == 0:\n",
+        "            break\n",
+        "        elif voto == 1:\n",
+        "            votos_candidato_a += 1\n",
+        "        elif voto == 2:\n",
+        "            votos_candidato_b += 1\n",
+        "        elif voto == 3:\n",
+        "            votos_candidato_c += 1\n",
+        "        else:\n",
+        "            print(\"Voto inválido. Tente novamente.\")\n",
+        "\n",
+        "    print(\"\\nResultado da votação:\")\n",
+        "    print(f\"Candidato A: {votos_candidato_a} voto(s)\")\n",
+        "    print(f\"Candidato B: {votos_candidato_b} voto(s)\")\n",
+        "    print(f\"Candidato C: {votos_candidato_c} voto(s)\")\n",
+        "\n",
+        "# Chama a função para realizar a votação\n",
+        "realizar_votacao()"
+      ],
+      "metadata": {
+        "id": "PF6g0Sr03y9e",
+        "outputId": "a6356643-6ad3-4551-86fb-3203efd4056f",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Vote no seu candidato:\n",
+            "1 - Candidato A\n",
+            "2 - Candidato B\n",
+            "3 - Candidato C\n",
+            "Digite 0 para encerrar.\n",
+            "Seu voto: 1\n",
+            "Seu voto: 0\n",
+            "\n",
+            "Resultado da votação:\n",
+            "Candidato A: 1 voto(s)\n",
+            "Candidato B: 0 voto(s)\n",
+            "Candidato C: 0 voto(s)\n"
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Olá, este é o Colaboratory",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
